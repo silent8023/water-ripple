@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水波纹</title>
+
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .el-div {
+            width: 20px;
+            height: 20px;
+            opacity: 0;
+            border-radius: 50%;
+            transition: all 500ms ease-in;
+        }
+
+        .el-div:hover {
+            opacity: 1;
+            transform: scale3d(1.8, 1.8, 1.8);
+            transition: transform 0s;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container"></div>
+
+
+    <script>
+        var container = document.querySelector('.container');
+        for (let i = 0;i < 1000;i++) {
+            var elementDiv = document.createElement('div');
+            elementDiv.setAttribute('class', 'el-div');
+            elementDiv.style.backgroundColor = colorRandom()
+            container.appendChild(elementDiv)
+        }
+        //生成随机颜色
+        function colorRandom() {
+            var color = "#";
+            for (var i = 0;i < 6;i++) {
+                color += (Math.random() * 16 | 0).toString(16);
+            }
+            return color;
+        }
+    </script>
+</body>
+
+</html>
